@@ -10,7 +10,7 @@ end
 
   def release_bike
     fail "No bikes!" if @docked_bikes.count == 0
-    @docked_bikes
+    @docked_bikes.pop
   end
 
   def dock (bike)
