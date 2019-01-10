@@ -4,18 +4,31 @@ require './lib/bike'
 class DockingStation
   attr_reader :docked_bikes
 
-def initialize(docked_bikes = Array.new)
+  def initialize(docked_bikes = Array.new)
   @docked_bikes = docked_bikes
 end
 
   def release_bike
-    fail "No bikes!" if @docked_bikes.count == 0
+    fail "No bikes!" if empty?
     @docked_bikes.pop
   end
 
   def dock (bike)
-    fail "I'm full!" if @docked_bikes.count >= 20
-    @docked_bikes.push(bike)
+      fail "I'm full!" if full?
+      @docked_bikes.push(bike)
+      end
   end
 
-end
+private
+
+  def full?
+    if @docked_bikes.count >= 20
+      true
+    end
+  end
+
+  def empty?
+    if @docked_bikes.count == 0
+      true
+    end
+  end
