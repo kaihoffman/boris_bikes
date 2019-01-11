@@ -52,7 +52,7 @@ it 'allows Capacity to be set to arbitrary integer value' do
 end
 
 it 'makes Capacity default to DEFAULT_CAPACITY when no arg passed' do
-  expect(station.instance_variable_get(:@capacity)).to eq(20)
+  expect(station.instance_variable_get(:@capacity)).to eq(DockingStation::DEFAULT_CAPACITY)
 end
 
 end
