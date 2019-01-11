@@ -42,4 +42,17 @@ fullstation.release_bike
 expect(fullstation.docked_bikes.count).to eq 19
 end
 
+it 'allows for Capacity to be called and returns an integer value' do
+expect(station.instance_variable_get(:@capacity)).to be_kind_of(Integer)
+end
+
+it 'allows Capacity to be set to arbitrary integer value' do
+  station2 = described_class.new(25)
+  expect(station2.instance_variable_get(:@capacity)).to eq(25)
+end
+
+it 'makes Capacity default to DEFAULT_CAPACITY when no arg passed' do
+  expect(station.instance_variable_get(:@capacity)).to eq(20)
+end
+
 end
